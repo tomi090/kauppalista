@@ -2,7 +2,7 @@ import './App.css'
 import React, {useState} from 'react'
 import Axios from 'axios'
 
-// ItemList.jsx tulostaa tämän komponentin jokaiselle tuotteelle ja lähettää propsina aina kyseisen pelin tiedot
+// ItemList.jsx tulostaa tämän komponentin jokaiselle tuotteelle ja lähettää propsina aina kyseisen tuotteen tiedot
 const Item = (props) => {
 
     // Komponentin tila joka määrää näytetäänkö pelkkä nimi vai muutkin tiedot.
