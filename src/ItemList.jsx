@@ -19,7 +19,7 @@ const ItemList = () => {
         fetch("https://localhost:5001/api/shoppinglist")
         .then(res => res.json()) // muutetaan json data javascriptiksi
         .then(data => setItems(data)) // Asetetaan data peli nimiseen stateen
-    }, [showAddForm, showEditForm])
+    }, [showAddForm, haeDatat, showEditForm])
 
 
       // Muokkausnapin / kynäkuvan tapahtumankäsittelijä. i = item mikä lähetetään parametrina kynäkuvakkeelta

@@ -24,7 +24,6 @@ const Item = (props) => {
             
         }
     }
-
     // Axios metodi joka lähettää poistopyynnön back-endiin
     const sendToBackend = (id) => {
         return Axios.delete('https://localhost:5001/api/shoppinglist/' + id)
