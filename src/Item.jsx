@@ -30,8 +30,6 @@ const Item = (props) => {
         return Axios.delete('https://localhost:5001/api/shoppinglist/' + id)
     }
 
-
-
     return (
         <div className="App">
 

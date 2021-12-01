@@ -12,6 +12,7 @@ const ItemList = () => {
     const [showEditForm, setShowEditForm] = useState(false)
     const [haeDatat, setHaeDatat] = useState(false)
     const [muokattavaTuote, setMuokattavaTuote] = useState({}) // Alustus tyhjä olio
+    const [haku, setHaku] = useState('')
 
     // useEffect hookilla voidaan vaikka hakea datat alussa
     useEffect(() => {
@@ -40,10 +41,20 @@ const ItemList = () => {
 
             {showEditForm && <EditItem setShowEditForm={setShowEditForm} item={muokattavaTuote} />}
 
-            {items && items.map(i => (
+            <input className="hakuKenttä" type="text"
+            value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Etsi tuote" />
+
+            {items && items.map(i => {
+                const lowerCaseName = i.itemName.toLowerCase()
+                if (lowerCaseName.indexOf(haku.toLowerCase()) > -1) {
+                    return (
+               <Item item={i} muokkaa={muokkaa} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
             
-                <Item item={i} muokkaa={muokkaa} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
-            ))}
+                    )}
+                    }
+                ) 
+            }
+            
             {!items && <h4>Ldataan...</h4>}
         </div>
         )
