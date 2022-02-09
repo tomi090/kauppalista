@@ -27,18 +27,17 @@ const AddItem = (props) => {
         }})
 
     }
-
     const sendToBackend = (uusiTuote) => {
         return Axios.post('https://localhost:5001/api/shoppinglist', uusiTuote)
     }
-   
+
     return (
         <div className="App">
 
         <form onSubmit={handleSubmit} style={{width: '13%', margin: 'auto'}}>
 
-            <input type="text" value={itemName} onChange={({target}) => setitemName(target.value)} placeholder="Tuotteen nimi" />
-            <input type="text" value={pieces} onChange={({target}) => setPieces(target.value)} placeholder="kpl" />
+            <input type="text" value={itemName} pattern='^[a-zA-Z ]*$' minLength={3} maxLength={15} onChange={({target}) => setitemName(target.value)} placeholder="Tuotteen nimi" />
+            <input type="number" value={pieces} max={999} onChange={({target}) => setPieces(target.valueAsNumber)} placeholder="kpl" />
            
             <input type="submit" value="Tallenna" />
             <input type="button" value="Tyhjennä" onClick={() => tyhjennä()} />
